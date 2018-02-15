@@ -34,15 +34,15 @@ export function Controls(props) {
     <ControlDiv>
       <TimerControl>
         <p>work</p>
-        <Button>-</Button>
+        <Button onClick={() => props.controlsClick('workMinus')}>-</Button>
         <TimerTime>{props.workTime}</TimerTime>
-        <Button>+</Button>
+        <Button onClick={() => props.controlsClick('workPlus')}>+</Button>
       </TimerControl>
       <TimerControl>
         <p>break</p>
-        <Button>-</Button>
+        <Button onClick={() => props.controlsClick('breakMinus')}>-</Button>
         <TimerTime>{props.breakTime}</TimerTime>
-        <Button>+</Button>
+        <Button onClick={() => props.controlsClick('breakPlus')}>+</Button>
       </TimerControl>
     </ControlDiv>
   );

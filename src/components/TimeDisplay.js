@@ -13,13 +13,25 @@ const DisplayHead = styled.div`
 
 const DisplayTime = styled.div`
   font-size: 3em;
+  cursor: pointer;
 `;
 
 export function TimeDisplay(props) {
+  let minutes = props.timerMinutes;
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  let seconds = props.timerSeconds;
+  if(seconds < 10) {
+    seconds = '0' + seconds;
+  }
+
   return (
     <DisplayDiv>
       <DisplayHead>time left to {props.session}</DisplayHead>
-      <DisplayTime>{props.sessionTime}</DisplayTime>
+      <DisplayTime onClick={props.timerClick}>
+        {minutes}:{seconds}
+      </DisplayTime>
     </DisplayDiv>
   );
 }
