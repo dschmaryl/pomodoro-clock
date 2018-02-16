@@ -14,7 +14,6 @@ export class App extends React.Component {
   }
 
   controlsClick(control) {
-    console.log('controlsClick func called');
     switch (control) {
       case 'workMinus':
         this.setState({
