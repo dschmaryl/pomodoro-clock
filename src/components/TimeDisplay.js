@@ -35,13 +35,13 @@ export class TimeDisplay extends React.Component {
       this.setState({
         workMinutes: nextProps.workMinutes,
         breakMinutes: nextProps.breakMinutes,
-        minutes: nextProps.workMinutes
+        minutes: nextProps.workMinutes,
+        seconds: 0
       });
     }
   }
 
   timerClick() {
-    console.log('timerClick func called');
     if (this.state.paused) {
       this.startClock();
       this.setState({paused: false});
@@ -52,11 +52,37 @@ export class TimeDisplay extends React.Component {
   }
 
   startClock() {
-    console.log('startClock func called');
+    this.clockUpdate();
+    this.setState({interval: setInterval(() => this.clockUpdate(), 1000)});
   }
 
   stopClock() {
-    console.log('stopClock func called');
+    this.setState({interval: clearInterval(this.state.interval)});
+  }
+
+  clockUpdate() {
+    if (this.state.minutes === 0 && this.state.seconds === 1) {
+      if (this.state.session === 'work') {
+        this.setState({
+          session: 'break',
+          minutes: this.state.breakMinutes,
+          seconds: 0
+        });
+      } else {
+        this.setState({
+          session: 'work',
+          minutes: this.state.workMinutes,
+          seconds: 0
+        });
+      }
+    } else if (this.state.seconds === 0) {
+      this.setState({
+        minutes: this.state.minutes - 1,
+        seconds: 59,
+      });
+    } else {
+      this.setState({seconds: this.state.seconds - 1});
+    }
   }
 
   render() {
@@ -71,7 +97,7 @@ export class TimeDisplay extends React.Component {
 
     return (
       <DisplayDiv>
-        <DisplayHead>time left to {this.state.session}</DisplayHead>
+        <DisplayHead>{this.state.session} time left:</DisplayHead>
         <DisplayTime onClick={this.timerClick}>
           {minutes}:{seconds}
         </DisplayTime>
