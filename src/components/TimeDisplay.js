@@ -8,11 +8,11 @@ const DisplayDiv = styled.div`
 `;
 
 const DisplayHead = styled.div`
-  font-size: 1.5em;
+  font-size: 2em;
 `;
 
 const DisplayTime = styled.div`
-  font-size: 3em;
+  font-size: 4em;
   cursor: pointer;
 `;
 
@@ -31,23 +31,25 @@ export class TimeDisplay extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      workMinutes: nextProps.workMinutes,
-      breakMinutes: nextProps.breakMinutes,
-    });
     if (this.state.paused) {
       if (this.state.session === 'work') {
-        this.setState({
-          minutes: nextProps.workMinutes,
-          seconds: 0
-        });
-      } else {
+        if (this.state.workMinutes !== nextProps.workMinutes) {
+          this.setState({
+            minutes: nextProps.workMinutes,
+            seconds: 0
+          });
+        }
+      } else if (this.state.breakMinutes !== nextProps.breakMinutes) {
         this.setState({
           minutes: nextProps.breakMinutes,
           seconds: 0
         });
       }
     }
+    this.setState({
+      workMinutes: nextProps.workMinutes,
+      breakMinutes: nextProps.breakMinutes,
+    });
   }
 
   timerClick() {
