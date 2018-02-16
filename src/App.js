@@ -17,16 +17,24 @@ export class App extends React.Component {
     console.log('controlsClick func called');
     switch (control) {
       case 'workMinus':
-        this.setState({workMinutes: this.state.workMinutes - 1});
+        this.setState({
+          workMinutes: Math.max(1, this.state.workMinutes - 1)
+        });
         break;
       case 'workPlus':
-        this.setState({workMinutes: this.state.workMinutes + 1});
+        this.setState({
+          workMinutes: Math.max(1, this.state.workMinutes + 1)
+        });
         break;
       case 'breakMinus':
-        this.setState({breakMinutes: this.state.breakMinutes - 1});
+        this.setState({
+          breakMinutes: Math.max(1, this.state.breakMinutes - 1)
+        });
         break;
       case 'breakPlus':
-        this.setState({breakMinutes: this.state.breakMinutes + 1});
+        this.setState({
+          breakMinutes: Math.max(1, this.state.breakMinutes + 1)
+        });
         break;
       default:
     }

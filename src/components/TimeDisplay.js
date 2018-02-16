@@ -31,13 +31,22 @@ export class TimeDisplay extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState({
+      workMinutes: nextProps.workMinutes,
+      breakMinutes: nextProps.breakMinutes,
+    });
     if (this.state.paused) {
-      this.setState({
-        workMinutes: nextProps.workMinutes,
-        breakMinutes: nextProps.breakMinutes,
-        minutes: nextProps.workMinutes,
-        seconds: 0
-      });
+      if (this.state.session === 'work') {
+        this.setState({
+          minutes: nextProps.workMinutes,
+          seconds: 0
+        });
+      } else {
+        this.setState({
+          minutes: nextProps.breakMinutes,
+          seconds: 0
+        });
+      }
     }
   }
 
@@ -61,7 +70,8 @@ export class TimeDisplay extends React.Component {
   }
 
   clockUpdate() {
-    if (this.state.minutes === 0 && this.state.seconds === 1) {
+    if (this.state.minutes === 0 && this.state.seconds <= 1) {
+      this.stopClock();
       if (this.state.session === 'work') {
         this.setState({
           session: 'break',
