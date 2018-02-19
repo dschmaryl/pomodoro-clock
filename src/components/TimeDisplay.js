@@ -77,12 +77,14 @@ export class TimeDisplay extends React.Component {
       if (this.state.session === 'work') {
         this.setState({
           session: 'break',
+          paused: true,
           minutes: this.state.breakMinutes,
           seconds: 0
         });
       } else {
         this.setState({
           session: 'work',
+          paused: true,
           minutes: this.state.workMinutes,
           seconds: 0
         });
