@@ -14,6 +14,7 @@ const DisplayHead = styled.div`
 const DisplayTime = styled.div`
   font-size: 4em;
   cursor: pointer;
+  color: ${props => props.session === 'work' ? 'green' : 'red'}
 `;
 
 export class TimeDisplay extends React.Component {
@@ -112,7 +113,10 @@ export class TimeDisplay extends React.Component {
     return (
       <DisplayDiv>
         <DisplayHead>{this.state.session} time left:</DisplayHead>
-        <DisplayTime onClick={this.timerClick}>
+        <DisplayTime
+          onClick={this.timerClick}
+          session={this.state.session}
+        >
           {minutes}:{seconds}
         </DisplayTime>
       </DisplayDiv>
