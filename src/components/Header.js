@@ -9,6 +9,6 @@ const H1 = styled.h1`
   padding-top: 20px;
 `;
 
-export function Header(props) {
+export function Header() {
   return <H1>Pomodoro clock</H1>;
 }

@@ -35,16 +35,10 @@ export class TimeDisplay extends React.Component {
     if (this.state.paused) {
       if (this.state.session === 'work') {
         if (this.state.workMinutes !== nextProps.workMinutes) {
-          this.setState({
-            minutes: nextProps.workMinutes,
-            seconds: 0
-          });
+          this.setState({minutes: nextProps.workMinutes, seconds: 0});
         }
       } else if (this.state.breakMinutes !== nextProps.breakMinutes) {
-        this.setState({
-          minutes: nextProps.breakMinutes,
-          seconds: 0
-        });
+        this.setState({minutes: nextProps.breakMinutes, seconds: 0});
       }
     }
     this.setState({
@@ -91,10 +85,7 @@ export class TimeDisplay extends React.Component {
         });
       }
     } else if (this.state.seconds === 0) {
-      this.setState({
-        minutes: this.state.minutes - 1,
-        seconds: 59,
-      });
+      this.setState({minutes: this.state.minutes - 1, seconds: 59});
     } else {
       this.setState({seconds: this.state.seconds - 1});
     }
@@ -113,10 +104,7 @@ export class TimeDisplay extends React.Component {
     return (
       <DisplayDiv>
         <DisplayHead>{this.state.session} time left:</DisplayHead>
-        <DisplayTime
-          onClick={this.timerClick}
-          session={this.state.session}
-        >
+        <DisplayTime onClick={this.timerClick} session={this.state.session}>
           {minutes}:{seconds}
         </DisplayTime>
       </DisplayDiv>
