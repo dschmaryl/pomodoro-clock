@@ -18,7 +18,8 @@ export class AlarmSound extends React.Component {
   render() {
     return (
       <Sound
-        url="/static/chimes.opus"
+        // this should probably be a relative link. fix it
+        url="https://dschmaryl.github.io/pomodoro-clock/static/chimes.opus"
         volume={50}
         loop={true}
         playFromPosition={0}
