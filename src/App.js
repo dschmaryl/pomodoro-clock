@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from './components/Header';
-import { Controls } from './components/Controls';
+import { TimeControls } from './components/TimeControls';
 import { TimeDisplay } from './components/TimeDisplay';
 
 export class App extends React.Component {
@@ -32,7 +32,7 @@ export class App extends React.Component {
     return (
       <div>
         <Header />
-        <Controls
+        <TimeControls
           workMinutes={this.state.workMinutes}
           breakMinutes={this.state.breakMinutes}
           controlsClick={this.controlsClick}

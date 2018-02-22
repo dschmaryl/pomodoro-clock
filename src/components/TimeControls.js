@@ -29,7 +29,7 @@ const Button = styled.button`
   text-align: center;
 `;
 
-export function Controls(props) {
+export function TimeControls(props) {
   return (
     <ControlDiv>
       <TimerControl>
