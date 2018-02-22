@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AlarmSound } from './AlarmSound';
 
 const DisplayDiv = styled.div`
   display: block;
@@ -25,7 +24,6 @@ export class TimeDisplay extends React.Component {
     this.state = {
       session: 'work',
       paused: true,
-      alarmStatus: 'off',
       workMinutes: props.workMinutes,
       breakMinutes: props.breakMinutes,
       minutes: props.workMinutes,
@@ -52,7 +50,8 @@ export class TimeDisplay extends React.Component {
   timerClick() {
     if (this.state.paused) {
       this.startClock();
-      this.setState({paused: false, alarmStatus: 'off'});
+      this.props.soundToggle('off');
+      this.setState({paused: false});
     } else {
       this.stopClock();
       this.setState({paused: true});
@@ -71,11 +70,11 @@ export class TimeDisplay extends React.Component {
   clockUpdate() {
     if (this.state.minutes === 0 && this.state.seconds <= 1) {
       this.stopClock();
+      this.props.soundToggle();
       if (this.state.session === 'work') {
         this.setState({
           session: 'break',
           paused: true,
-          alarmStatus: 'on',
           minutes: this.state.breakMinutes,
           seconds: 0
         });
@@ -83,7 +82,6 @@ export class TimeDisplay extends React.Component {
         this.setState({
           session: 'work',
           paused: true,
-          alarmStatus: 'on',
           minutes: this.state.workMinutes,
           seconds: 0
         });
@@ -111,7 +109,6 @@ export class TimeDisplay extends React.Component {
         <DisplayTime onClick={this.timerClick} session={this.state.session}>
           {minutes}:{seconds}
         </DisplayTime>
-        <AlarmSound alarmStatus={this.state.alarmStatus}  />
       </DisplayDiv>
     );
   }
