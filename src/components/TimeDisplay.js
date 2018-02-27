@@ -50,7 +50,7 @@ export class TimeDisplay extends React.Component {
   timerClick() {
     if (this.state.paused) {
       this.startClock();
-      this.props.soundToggle('off');
+      this.props.stopSound();
       this.setState({paused: false});
     } else {
       this.stopClock();
@@ -70,7 +70,7 @@ export class TimeDisplay extends React.Component {
   clockUpdate() {
     if (this.state.minutes === 0 && this.state.seconds <= 1) {
       this.stopClock();
-      this.props.soundToggle();
+      this.props.playSound();
       if (this.state.session === 'work') {
         this.setState({
           session: 'break',

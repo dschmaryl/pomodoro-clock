@@ -30,6 +30,14 @@ const Button = styled.button`
 `;
 
 export function SoundControls(props) {
+  function toggleSound() {
+    if (props.soundButtonStr === 'play') {
+      props.playSound();
+    } else {
+      props.stopSound();
+    }
+  }
+
   return (
     <ControlDiv>
       <SoundControl>
@@ -40,7 +48,7 @@ export function SoundControls(props) {
       </SoundControl>
       <SoundControl>
         <p>sound</p>
-        <Button onClick={props.soundClick}>{props.soundButtonStr}</Button>
+        <Button onClick={toggleSound}>{props.soundButtonStr}</Button>
       </SoundControl>
     </ControlDiv>
   );

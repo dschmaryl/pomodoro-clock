@@ -10,7 +10,8 @@ export class App extends React.Component {
     super();
     this.controlsClick = this.controlsClick.bind(this);
     this.volumeClick = this.volumeClick.bind(this);
-    this.soundToggle = this.soundToggle.bind(this);
+    this.playSound = this.playSound.bind(this);
+    this.stopSound = this.stopSound.bind(this);
     this.state = {
       workMinutes: 25,
       breakMinutes: 5,
@@ -46,13 +47,17 @@ export class App extends React.Component {
     }
   }
 
-  soundToggle(onOff) {
-    if (this.state.soundStatus === Sound.status.STOPPED && onOff !== 'off') {
+  playSound() {
+    if (this.state.soundStatus === Sound.status.STOPPED) {
       this.setState({
         soundStatus: Sound.status.PLAYING,
         soundButtonStr: 'stop'
       });
-    } else {
+    }
+  }
+
+  stopSound() {
+    if (this.state.soundStatus === Sound.status.PLAYING) {
       this.setState({
         soundStatus: Sound.status.STOPPED,
         soundButtonStr: 'play'
@@ -73,15 +78,17 @@ export class App extends React.Component {
           soundVolume={this.state.soundVolume}
           volumeClick={this.volumeClick}
           soundButtonStr={this.state.soundButtonStr}
-          soundClick={this.soundToggle}
+          playSound={this.playSound}
+          stopSound={this.stopSound}
         />
         <TimeDisplay
           workMinutes={this.state.workMinutes}
           breakMinutes={this.state.breakMinutes}
-          soundToggle={this.soundToggle}
+          playSound={this.playSound}
+          stopSound={this.stopSound}
         />
         <Sound
-          // this should probably be a relative link. fix it
+          // todo: this should probably be a relative link
           url="https://dschmaryl.github.io/pomodoro-clock/static/chimes.opus"
           volume={this.state.soundVolume}
           loop={true}
