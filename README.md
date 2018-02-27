@@ -6,7 +6,6 @@ To use, set the work/break times and sound volume to whatever you prefer, then c
 
 https://dschmaryl.github.io/pomodoro-clock/
 
-
 Screenshot:
 
-![Pomodoro Clock](/public/static/screenshot.png?raw=true)
+![Pomodoro Clock Screenshot](/public/static/screenshot.png?raw=true)
