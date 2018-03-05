@@ -89,7 +89,7 @@ export class App extends React.Component {
         />
         <Sound
           // todo: this should probably be a relative link
-          url="https://dschmaryl.github.io/pomodoro-clock/static/chimes.opus"
+          url="https://dschmaryl.github.io/pomodoro-clock/static/alarm.opus"
           volume={this.state.soundVolume}
           loop={true}
           playFromPosition={0}
