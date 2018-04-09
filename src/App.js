@@ -24,16 +24,18 @@ export class App extends React.Component {
   controlsClick(control) {
     switch (control) {
       case 'workMinus':
-        this.setState({workMinutes: Math.max(1, this.state.workMinutes - 1)});
+        this.setState({ workMinutes: Math.max(1, this.state.workMinutes - 1) });
         break;
       case 'workPlus':
-        this.setState({workMinutes: this.state.workMinutes + 1});
+        this.setState({ workMinutes: this.state.workMinutes + 1 });
         break;
       case 'breakMinus':
-        this.setState({breakMinutes: Math.max(1, this.state.breakMinutes - 1)});
+        this.setState({
+          breakMinutes: Math.max(1, this.state.breakMinutes - 1)
+        });
         break;
       case 'breakPlus':
-        this.setState({breakMinutes: this.state.breakMinutes + 1});
+        this.setState({ breakMinutes: this.state.breakMinutes + 1 });
         break;
       default:
     }
@@ -41,9 +43,9 @@ export class App extends React.Component {
 
   volumeClick(control) {
     if (control === 'volumeMinus') {
-      this.setState({soundVolume: Math.max(0, this.state.soundVolume - 5)});
+      this.setState({ soundVolume: Math.max(0, this.state.soundVolume - 5) });
     } else {
-      this.setState({soundVolume: Math.min(100, this.state.soundVolume + 5)});
+      this.setState({ soundVolume: Math.min(100, this.state.soundVolume + 5) });
     }
   }
 

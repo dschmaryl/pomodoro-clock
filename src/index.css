@@ -2,10 +2,11 @@
   margin: 0;
   font-family: Open Sans, sans-serif;
   background-color: #222222;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   overflow: hidden;
   min-width: 350px;

@@ -14,7 +14,7 @@ const DisplayHead = styled.div`
 const DisplayTime = styled.div`
   font-size: 4em;
   cursor: pointer;
-  color: ${props => props.session === 'work' ? 'green' : 'red'}
+  color: ${props => (props.session === 'work' ? 'green' : 'red')};
 `;
 
 export class TimeDisplay extends React.Component {
@@ -35,15 +35,15 @@ export class TimeDisplay extends React.Component {
     if (this.state.paused) {
       if (this.state.session === 'work') {
         if (this.state.workMinutes !== nextProps.workMinutes) {
-          this.setState({minutes: nextProps.workMinutes, seconds: 0});
+          this.setState({ minutes: nextProps.workMinutes, seconds: 0 });
         }
       } else if (this.state.breakMinutes !== nextProps.breakMinutes) {
-        this.setState({minutes: nextProps.breakMinutes, seconds: 0});
+        this.setState({ minutes: nextProps.breakMinutes, seconds: 0 });
       }
     }
     this.setState({
       workMinutes: nextProps.workMinutes,
-      breakMinutes: nextProps.breakMinutes,
+      breakMinutes: nextProps.breakMinutes
     });
   }
 
@@ -51,20 +51,20 @@ export class TimeDisplay extends React.Component {
     if (this.state.paused) {
       this.startClock();
       this.props.stopSound();
-      this.setState({paused: false});
+      this.setState({ paused: false });
     } else {
       this.stopClock();
-      this.setState({paused: true});
+      this.setState({ paused: true });
     }
   }
 
   startClock() {
     this.clockUpdate();
-    this.setState({interval: setInterval(() => this.clockUpdate(), 1000)});
+    this.setState({ interval: setInterval(() => this.clockUpdate(), 1000) });
   }
 
   stopClock() {
-    this.setState({interval: clearInterval(this.state.interval)});
+    this.setState({ interval: clearInterval(this.state.interval) });
   }
 
   clockUpdate() {
@@ -87,9 +87,9 @@ export class TimeDisplay extends React.Component {
         });
       }
     } else if (this.state.seconds === 0) {
-      this.setState({minutes: this.state.minutes - 1, seconds: 59});
+      this.setState({ minutes: this.state.minutes - 1, seconds: 59 });
     } else {
-      this.setState({seconds: this.state.seconds - 1});
+      this.setState({ seconds: this.state.seconds - 1 });
     }
   }
 
@@ -99,7 +99,7 @@ export class TimeDisplay extends React.Component {
       minutes = '0' + minutes;
     }
     let seconds = this.state.seconds;
-    if(seconds < 10) {
+    if (seconds < 10) {
       seconds = '0' + seconds;
     }
 
