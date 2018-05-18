@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Button } from './Button';
+
 const ControlDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -20,35 +22,30 @@ const SoundVolume = styled.div`
   font-size: 1.5em;
 `;
 
-const Button = styled.button`
-  cursor: pointer;
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 1.5em;
-  text-align: center;
-`;
-
 export function SoundControls(props) {
-  function toggleSound() {
-    if (props.soundButtonStr === 'play') {
-      props.playSound();
-    } else {
-      props.stopSound();
-    }
-  }
+  const store = props.store;
+  const { sound } = store.getState();
 
   return (
     <ControlDiv>
       <SoundControl>
         <p>volume</p>
-        <Button onClick={() => props.volumeClick('volumeMinus')}>-</Button>
-        <SoundVolume>{props.soundVolume}</SoundVolume>
-        <Button onClick={() => props.volumeClick('volumePlus')}>+</Button>
+        <Button
+          onClick={() => store.dispatch({ type: 'DECREASE_VOLUME' })}
+          buttonText="-"
+        />
+        <SoundVolume>{sound.volume}</SoundVolume>
+        <Button
+          onClick={() => store.dispatch({ type: 'INCREASE_VOLUME' })}
+          buttonText="+"
+        />
       </SoundControl>
       <SoundControl>
         <p>sound</p>
-        <Button onClick={toggleSound}>{props.soundButtonStr}</Button>
+        <Button
+          onClick={() => store.dispatch({ type: 'TOGGLE_SOUND' })}
+          buttonText={sound.playing ? 'stop' : 'play'}
+        />
       </SoundControl>
     </ControlDiv>
   );

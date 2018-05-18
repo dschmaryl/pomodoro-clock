@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Button } from './Button';
+
 const ControlDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -20,29 +22,35 @@ const TimerTime = styled.div`
   font-size: 1.5em;
 `;
 
-const Button = styled.button`
-  cursor: pointer;
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 1.5em;
-  text-align: center;
-`;
-
 export function TimeControls(props) {
+  const store = props.store;
+  const { time } = store.getState();
+
   return (
     <ControlDiv>
       <TimerControl>
         <p>work</p>
-        <Button onClick={() => props.controlsClick('workMinus')}>-</Button>
-        <TimerTime>{props.workMinutes}</TimerTime>
-        <Button onClick={() => props.controlsClick('workPlus')}>+</Button>
+        <Button
+          onClick={() => store.dispatch({ type: 'DECREASE_WORK_TIME' })}
+          buttonText="-"
+        />
+        <TimerTime>{time.workTime}</TimerTime>
+        <Button
+          onClick={() => store.dispatch({ type: 'INCREASE_WORK_TIME' })}
+          buttonText="+"
+        />
       </TimerControl>
       <TimerControl>
         <p>break</p>
-        <Button onClick={() => props.controlsClick('breakMinus')}>-</Button>
-        <TimerTime>{props.breakMinutes}</TimerTime>
-        <Button onClick={() => props.controlsClick('breakPlus')}>+</Button>
+        <Button
+          onClick={() => store.dispatch({ type: 'DECREASE_BREAK_TIME' })}
+          buttonText="-"
+        />
+        <TimerTime>{time.breakTime}</TimerTime>
+        <Button
+          onClick={() => store.dispatch({ type: 'INCREASE_BREAK_TIME' })}
+          buttonText="+"
+        />
       </TimerControl>
     </ControlDiv>
   );
