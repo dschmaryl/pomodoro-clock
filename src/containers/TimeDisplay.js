@@ -1,22 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const DisplayDiv = styled.div`
-  display: block;
-  justify-content: center;
-  text-align: center;
-  padding-top: 20px;
-`;
-
-const DisplayHead = styled.div`
-  font-size: 2em;
-`;
-
-const DisplayTime = styled.div`
-  font-size: 4em;
-  cursor: pointer;
-  color: ${props => (props.session === 'work' ? 'green' : 'red')};
-`;
+import { Timer } from '../components/Timer';
+import { TimerHead } from '../components/TimerHead';
+import { TimerTime } from '../components/TimerTime';
 
 export class TimeDisplay extends React.Component {
   constructor(props) {
@@ -105,12 +91,12 @@ export class TimeDisplay extends React.Component {
     }
 
     return (
-      <DisplayDiv>
-        <DisplayHead>{this.state.session} time left:</DisplayHead>
-        <DisplayTime onClick={this.timerClick} session={this.state.session}>
+      <Timer>
+        <TimerHead session={this.state.session} />
+        <TimerTime timerClick={this.timerClick} session={this.state.session}>
           {minutes}:{seconds}
-        </DisplayTime>
-      </DisplayDiv>
+        </TimerTime>
+      </Timer>
     );
   }
 }
