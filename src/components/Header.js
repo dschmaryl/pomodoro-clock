@@ -7,8 +7,7 @@ const H1 = styled.h1`
   text-align: center;
   font-size: 3em;
   padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
-export function Header() {
-  return <H1>Pomodoro clock</H1>;
-}
+export const Header = () => <H1>Pomodoro clock</H1>;

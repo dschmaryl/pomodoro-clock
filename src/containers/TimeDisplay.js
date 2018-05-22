@@ -5,6 +5,7 @@ const DisplayDiv = styled.div`
   display: block;
   justify-content: center;
   text-align: center;
+  padding-top: 20px;
 `;
 
 const DisplayHead = styled.div`
