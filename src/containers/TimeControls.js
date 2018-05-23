@@ -15,7 +15,9 @@ export const TimeControls = props => {
         <p>work</p>
         <Button
           buttonText="-"
-          onClick={() => store.dispatch({ type: 'DECREASE_WORK_TIME' })}
+          onClick={() => {
+            store.dispatch({ type: 'DECREASE_WORK_TIME' });
+          }}
         />
         <Label text={time.workTime} />
         <Button
