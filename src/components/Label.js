@@ -6,4 +6,4 @@ const Text = styled.div`
   font-size: 1.5em;
 `;
 
-export const Label = props => <Text>{props.text}</Text>;
+export const Label = ({ text }) => <Text>{text}</Text>;

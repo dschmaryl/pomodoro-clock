@@ -10,6 +10,6 @@ const StyledButton = styled.button`
   text-align: center;
 `;
 
-export const Button = props => (
-  <StyledButton onClick={props.onClick}>{props.buttonText}</StyledButton>
+export const Button = ({ buttonText, onClick }) => (
+  <StyledButton onClick={onClick}>{buttonText}</StyledButton>
 );
