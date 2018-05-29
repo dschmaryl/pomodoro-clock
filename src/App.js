@@ -4,15 +4,15 @@ import { Header } from './components/Header';
 import SoundControls from './containers/SoundControls';
 import TimeControls from './containers/TimeControls';
 import TimeDisplay from './containers/TimeDisplay';
-import AlarmSound from './containers/AlarmSound';
+import Alarm from './containers/Alarm';
 
-const App = props => (
+const App = () => (
   <div>
     <Header />
     <TimeControls />
     <SoundControls />
     <TimeDisplay />
-    <AlarmSound />
+    <Alarm />
   </div>
 );
 
