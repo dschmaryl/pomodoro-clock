@@ -5,13 +5,13 @@
   "homepage": "https://dschmaryl.github.io/pomodoro-clock/",
   "dependencies": {
     "npm": "^5.10.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.1",
     "react-sound": "^1.2.0",
     "redux": "^4.0.0",
-    "styled-components": "^3.2.6"
+    "styled-components": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

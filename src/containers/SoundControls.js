@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { decreaseVolume, increaseVolume, toggleSound } from '../actions';
 import { SoundControls } from '../components/SoundControls';
 
 const mapStateToProps = state => ({
@@ -7,9 +8,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  decreaseVolume: () => dispatch({ type: 'DECREASE_VOLUME' }),
-  increaseVolume: () => dispatch({ type: 'INCREASE_VOLUME' }),
-  toggleSound: () => dispatch({ type: 'TOGGLE_SOUND' })
+  decreaseVolume: () => dispatch(decreaseVolume()),
+  increaseVolume: () => dispatch(increaseVolume()),
+  toggleSound: () => dispatch(toggleSound())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SoundControls);

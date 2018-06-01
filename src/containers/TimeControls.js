@@ -1,4 +1,10 @@
 import { connect } from 'react-redux';
+import {
+  decreaseWorkTime,
+  increaseWorkTime,
+  decreaseBreakTime,
+  increaseBreakTime
+} from '../actions';
 import { TimeControls } from '../components/TimeControls';
 
 const mapStateToProps = state => {
@@ -6,10 +12,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  decreaseWorkTime: () => dispatch({ type: 'DECREASE_WORK_TIME' }),
-  increaseWorkTime: () => dispatch({ type: 'INCREASE_WORK_TIME' }),
-  decreaseBreakTime: () => dispatch({ type: 'DECREASE_BREAK_TIME' }),
-  increaseBreakTime: () => dispatch({ type: 'INCREASE_BREAK_TIME' })
+  decreaseWorkTime: () => dispatch(decreaseWorkTime()),
+  increaseWorkTime: () => dispatch(increaseWorkTime()),
+  decreaseBreakTime: () => dispatch(decreaseBreakTime()),
+  increaseBreakTime: () => dispatch(increaseBreakTime())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimeControls);
