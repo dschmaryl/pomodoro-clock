@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://dschmaryl.github.io/pomodoro-clock/",
   "dependencies": {
-    "npm": "^5.10.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
