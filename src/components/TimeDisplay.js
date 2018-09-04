@@ -49,13 +49,16 @@ export class TimeDisplay extends React.Component {
   }
 
   render() {
-    const { minutes, seconds } = this.props;
+    const { minutes, seconds, session } = this.props;
     const minutesStr = minutes < 10 ? '0' + minutes : minutes;
     const secondsStr = seconds < 10 ? '0' + seconds : seconds;
+    const sessionStr = session[0].toUpperCase() + session.slice(1);
+
+    document.title = sessionStr + " ~ " + minutesStr + ':' + secondsStr;
 
     return (
       <Timer>
-        <TimerHead>{this.props.session} time left:</TimerHead>
+        <TimerHead>{sessionStr} time left:</TimerHead>
         <TimerTime onClick={this.timerClick} session={this.props.session}>
           {minutesStr}:{secondsStr}
         </TimerTime>
