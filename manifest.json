@@ -1,6 +1,6 @@
 {
   "short_name": "Pomodoro Clock",
-  "name": "A Pomodoro clock created with React",
+  "name": "A Pomodoro clock created with React and Redux",
   "icons": [
     {
       "src": "favicon.ico",
