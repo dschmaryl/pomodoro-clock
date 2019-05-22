@@ -1,16 +1,19 @@
-const reducers = (
-  state = {
-    workTime: 25,
-    breakTime: 5,
-    volume: 50,
-    soundPlaying: false,
-    minutes: 25,
-    seconds: 0,
-    session: 'work',
-    paused: true
-  },
-  action
-) => {
+import { Reducer } from 'redux';
+
+import { State } from './types';
+
+const initialState: State = {
+  workTime: 25,
+  breakTime: 5,
+  volume: 50,
+  soundPlaying: false,
+  minutes: 25,
+  seconds: 0,
+  session: 'work',
+  paused: true
+};
+
+export const reducer: Reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'DECREASE_WORK_TIME':
       if (state.paused && state.session === 'work') {
@@ -114,5 +117,3 @@ const reducers = (
       return state;
   }
 };
-
-export default reducers;

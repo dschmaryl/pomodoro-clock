@@ -1,13 +1,10 @@
 * {
-  margin: 0;
   font-family: Open Sans, sans-serif;
-  background-color: #222222;
-  color: #ffffff;
+  background-color: #111111;
+  color: #ccc;
 }
 
-html,
 body {
-  height: 100%;
+  margin: 0;
   overflow: hidden;
-  min-width: 350px;
 }

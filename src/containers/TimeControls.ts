@@ -1,4 +1,7 @@
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+
+import { State } from '../types';
 import {
   decreaseWorkTime,
   increaseWorkTime,
@@ -7,15 +10,18 @@ import {
 } from '../actions';
 import { TimeControls } from '../components/TimeControls';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: State) => {
   return { workTime: state.workTime, breakTime: state.breakTime };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   decreaseWorkTime: () => dispatch(decreaseWorkTime()),
   increaseWorkTime: () => dispatch(increaseWorkTime()),
   decreaseBreakTime: () => dispatch(decreaseBreakTime()),
   increaseBreakTime: () => dispatch(increaseBreakTime())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TimeControls);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TimeControls);

@@ -1,26 +1,48 @@
 {
   "name": "pomodoro-clock",
-  "version": "0.1.0",
-  "private": true,
   "homepage": "https://dschmaryl.github.io/pomodoro-clock/",
+  "version": "0.1.1",
+  "private": true,
   "dependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-redux": "^5.0.7",
-    "react-scripts": "^1.1.4",
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.2",
+    "@types/react": "16.8.18",
+    "@types/react-dom": "16.8.4",
+    "@types/react-redux": "^7.0.9",
+    "@types/react-sound": "^1.2.1",
+    "@types/styled-components": "^4.1.15",
+    "gh-pages": "^2.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-scripts": "3.0.1",
     "react-sound": "^1.2.0",
-    "redux": "^4.0.0",
-    "styled-components": "^3.3.0"
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "styled-components": "^4.2.0",
+    "typescript": "3.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "devDependencies": {
-    "gh-pages": "^1.1.0"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
