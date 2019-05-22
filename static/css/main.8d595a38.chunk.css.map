@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,EACE,gCAAkC,CAClC,qBAAyB,CACzB,UACF,CAEA,KACE,QAAS,CACT,eACF","file":"main.8d595a38.chunk.css","sourcesContent":["* {\n  font-family: Open Sans, sans-serif;\n  background-color: #111111;\n  color: #ccc;\n}\n\nbody {\n  margin: 0;\n  overflow: hidden;\n}\n"]}
