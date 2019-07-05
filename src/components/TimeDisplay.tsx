@@ -31,23 +31,30 @@ interface PropTypes {
 export class TimeDisplay extends React.Component<PropTypes> {
   state = { interval: undefined, paused: true };
 
-  componentWillReceiveProps = ({ paused }: { paused: boolean }) => {
+  componentDidMount = () => this.checkPaused(this.props.paused);
+
+  componentWillReceiveProps = ({ paused }: { paused: boolean }) =>
+    this.checkPaused(paused);
+
+  checkPaused = (paused: boolean) => {
     if (paused && !this.state.paused) {
       this.setState({
         paused: true,
         interval: clearInterval(this.state.interval)
       });
     } else if (!paused && this.state.paused) {
-      this.props.timerTick();
-      this.setState({
-        paused: false,
-        interval: setInterval(() => this.props.timerTick(), 1000)
-      });
+      this.setState(
+        {
+          paused: false,
+          interval: setInterval(() => this.props.timerTick(), 1000)
+        },
+        () => this.props.timerTick()
+      );
     }
   };
 
   timerClick = () =>
-    this.state.paused ? this.props.unpauseTimer() : this.props.pauseTimer();
+    this.props.paused ? this.props.unpauseTimer() : this.props.pauseTimer();
 
   render = () => {
     const { minutes, seconds, session } = this.props;

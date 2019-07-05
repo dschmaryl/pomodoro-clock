@@ -18,7 +18,7 @@ export const reducer: Reducer = (state = initialState, action) => {
     case 'DECREASE_WORK_TIME':
       if (state.paused && state.session === 'work') {
         const workTime = Math.max(1, state.workTime - 1);
-        return { ...state, workTime: workTime, minutes: workTime, seconds: 0 };
+        return { ...state, workTime, minutes: workTime, seconds: 0 };
       } else {
         return { ...state, workTime: Math.max(1, state.workTime - 1) };
       }
@@ -26,7 +26,7 @@ export const reducer: Reducer = (state = initialState, action) => {
     case 'INCREASE_WORK_TIME':
       if (state.paused && state.session === 'work') {
         const workTime = Math.min(state.workTime + 1, 120);
-        return { ...state, workTime: workTime, minutes: workTime, seconds: 0 };
+        return { ...state, workTime, minutes: workTime, seconds: 0 };
       } else {
         return { ...state, workTime: Math.min(state.workTime + 1, 120) };
       }
@@ -34,12 +34,7 @@ export const reducer: Reducer = (state = initialState, action) => {
     case 'DECREASE_BREAK_TIME':
       if (state.paused && state.session === 'break') {
         const breakTime = Math.max(1, state.breakTime - 1);
-        return {
-          ...state,
-          breakTime: breakTime,
-          minutes: breakTime,
-          seconds: 0
-        };
+        return { ...state, breakTime, minutes: breakTime, seconds: 0 };
       } else {
         return { ...state, breakTime: Math.max(1, state.breakTime - 1) };
       }
@@ -47,12 +42,7 @@ export const reducer: Reducer = (state = initialState, action) => {
     case 'INCREASE_BREAK_TIME':
       if (state.paused && state.session === 'break') {
         const breakTime = Math.min(state.breakTime + 1, 120);
-        return {
-          ...state,
-          breakTime: breakTime,
-          minutes: breakTime,
-          seconds: 0
-        };
+        return { ...state, breakTime, minutes: breakTime, seconds: 0 };
       } else {
         return { ...state, breakTime: Math.min(state.breakTime + 1, 120) };
       }
