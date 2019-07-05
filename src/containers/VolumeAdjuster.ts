@@ -2,14 +2,8 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { State } from '../types';
-import {
-  decreaseVolume,
-  increaseVolume,
-  togglePaused,
-  nextSession,
-  toggleSound
-} from '../actions';
-import { SoundControls } from '../components/SoundControls';
+import { decreaseVolume, increaseVolume, toggleSound } from '../actions';
+import { Volume } from '../components/Volume';
 
 const mapStateToProps = (state: State) => ({
   volume: state.volume,
@@ -20,12 +14,10 @@ const mapStateToProps = (state: State) => ({
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   decreaseVolume: () => dispatch(decreaseVolume()),
   increaseVolume: () => dispatch(increaseVolume()),
-  togglePaused: () => dispatch(togglePaused()),
-  nextSession: () => dispatch(nextSession()),
   toggleSound: () => dispatch(toggleSound())
 });
 
-export default connect(
+export const VolumeAdjuster = connect(
   mapStateToProps,
   mapDispatchToProps
-)(SoundControls);
+)(Volume);

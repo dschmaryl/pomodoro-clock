@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
+import { FaAngleDoubleRight, FaPlay, FaPause } from 'react-icons/fa';
 
 import styled from 'styled-components';
 
@@ -14,47 +14,41 @@ const Container = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 8px;
 `;
 
 const Button = styled.button`
   cursor: pointer;
   border: none;
   outline: none;
-  padding: 6px 10px 0 10px;
+  padding: 10px;
   text-align: center;
 `;
 
 const Text = styled.div`
+  display: inline;
   font-size: 1.5em;
 `;
 
-const Value = styled.div`
-  font-size: 2em;
-`;
-
 interface PropTypes {
-  label: string;
-  value: number | string;
-  onDecrease: Function;
-  onIncrease: Function;
+  paused: boolean;
+  togglePaused: Function;
+  nextSession: Function;
 }
 
-export const Adjuster: React.FC<PropTypes> = ({
-  label,
-  value,
-  onDecrease,
-  onIncrease
+export const Session: React.FC<PropTypes> = ({
+  paused,
+  togglePaused,
+  nextSession
 }) => (
   <Container>
-    <Text>{label}</Text>
+    <Text>session</Text>
     <ButtonContainer>
-      <Button onClick={() => onDecrease()}>
-        <FaAngleDown size="2.2em" />
+      <Button onClick={() => togglePaused()}>
+        {paused ? <FaPlay size="2em" /> : <FaPause size="2em" />}
       </Button>
-      <Value>{value}</Value>
-      <Button onClick={() => onIncrease()}>
-        <FaAngleUp size="2.2em" />
+      <Button onClick={() => nextSession()}>
+        <FaAngleDoubleRight size="2.5em" />
       </Button>
     </ButtonContainer>
   </Container>

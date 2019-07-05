@@ -1,8 +1,11 @@
 import React from 'react';
 
 import { Header } from './components/Header';
-import SoundControls from './containers/SoundControls';
-import TimeControls from './containers/TimeControls';
+import { AdjusterRow } from './components/AdjusterRow';
+import { WorkAdjuster } from './containers/WorkAdjuster';
+import { BreakAdjuster } from './containers/BreakAdjuster';
+import { VolumeAdjuster } from './containers/VolumeAdjuster';
+import { SessionAdjuster } from './containers/SessionAdjuster';
 import TimeDisplay from './containers/TimeDisplay';
 import Alarm from './containers/Alarm';
 
@@ -16,7 +19,7 @@ const App: React.FC = () => {
     >
       <div
         style={{
-          width: '340px',
+          width: '300px',
           height: '560px',
           display: 'flex',
           flexDirection: 'column',
@@ -24,8 +27,15 @@ const App: React.FC = () => {
         }}
       >
         <Header />
-        <TimeControls />
-        <SoundControls />
+        <AdjusterRow>
+          <WorkAdjuster />
+          <BreakAdjuster />
+        </AdjusterRow>
+        <AdjusterRow>
+          <VolumeAdjuster />
+          <SessionAdjuster />
+        </AdjusterRow>
+
         <TimeDisplay />
         <Alarm />
       </div>

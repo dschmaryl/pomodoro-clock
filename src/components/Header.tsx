@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const H1 = styled.h1`
   text-align: center;
-  font-size: 2.6em;
+  font-size: 2.2em;
   padding-top: 6px;
 `;
 
