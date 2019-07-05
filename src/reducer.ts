@@ -72,6 +72,32 @@ export const reducer: Reducer = (state = initialState, action) => {
         return state;
       }
 
+    case 'TOGGLE_PAUSED': {
+      return { ...state, paused: !state.paused };
+    }
+
+    case 'NEXT_SESSION': {
+      if (state.session === 'work') {
+        return {
+          ...state,
+          soundPlaying: false,
+          session: 'break',
+          paused: true,
+          minutes: state.breakTime,
+          seconds: 0
+        };
+      } else {
+        return {
+          ...state,
+          soundPlaying: false,
+          session: 'work',
+          paused: true,
+          minutes: state.workTime,
+          seconds: 0
+        };
+      }
+    }
+
     case 'TIMER_TICK':
       if (!state.paused) {
         if (state.minutes === 0 && state.seconds === 1) {
