@@ -17,6 +17,6 @@ export const Alarm = ({ volume, soundPlaying }) => (
     volume={volume}
     loop={true}
     playFromPosition={0}
-    playStatus={soundPlaying ? Sound.status.Playing : Sound.status.STOPPED}
+    playStatus={soundPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
   />
 );
