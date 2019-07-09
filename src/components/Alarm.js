@@ -9,7 +9,6 @@ import Sound from 'react-sound';
 // }
 
 // export const Alarm: React.FC<PropTypes> = ({ volume, soundPlaying }) => (
-//
 
 export const Alarm = ({ volume, soundPlaying }) => (
   <Sound
@@ -18,6 +17,6 @@ export const Alarm = ({ volume, soundPlaying }) => (
     volume={volume}
     loop={true}
     playFromPosition={0}
-    playStatus={soundPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
+    playStatus={soundPlaying ? Sound.status.Playing : Sound.status.STOPPED}
   />
 );

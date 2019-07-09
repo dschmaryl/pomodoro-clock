@@ -23,8 +23,7 @@ interface PropTypes {
   seconds: number;
   session: string;
   paused: boolean;
-  pauseTimer: Function;
-  unpauseTimer: Function;
+  togglePaused: Function;
   timerTick: Function;
 }
 
@@ -53,9 +52,6 @@ export class TimeDisplay extends React.Component<PropTypes> {
     }
   };
 
-  timerClick = () =>
-    this.props.paused ? this.props.unpauseTimer() : this.props.pauseTimer();
-
   render = () => {
     const { minutes, seconds, session } = this.props;
     const minutesStr = minutes < 10 ? '0' + minutes : minutes;
@@ -67,7 +63,10 @@ export class TimeDisplay extends React.Component<PropTypes> {
     return (
       <Timer>
         <TimerHead>{sessionStr} time left:</TimerHead>
-        <TimerTime onClick={this.timerClick} session={this.props.session}>
+        <TimerTime
+          onClick={() => this.props.togglePaused()}
+          session={this.props.session}
+        >
           {minutesStr}:{secondsStr}
         </TimerTime>
       </Timer>

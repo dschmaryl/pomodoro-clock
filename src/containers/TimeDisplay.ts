@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { State } from '../types';
-import { pauseTimer, unpauseTimer, timerTick } from '../actions';
+import { timerTick, togglePaused } from '../actions';
 import { TimeDisplay } from '../components/TimeDisplay';
 
 const mapStateToProps = (state: State) => ({
@@ -13,8 +13,7 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  pauseTimer: () => dispatch(pauseTimer()),
-  unpauseTimer: () => dispatch(unpauseTimer()),
+  togglePaused: () => dispatch(togglePaused()),
   timerTick: () => dispatch(timerTick())
 });
 

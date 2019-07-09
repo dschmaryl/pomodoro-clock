@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { State } from '../types';
-import { togglePaused, nextSession } from '../actions';
+import { nextSession, togglePaused } from '../actions';
 import { Session } from '../components/Session';
 
 const mapStateToProps = (state: State) => ({

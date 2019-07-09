@@ -9,7 +9,5 @@ export const toggleSound = () => ({ type: 'TOGGLE_SOUND' });
 
 export const nextSession = () => ({ type: 'NEXT_SESSION' });
 
-export const pauseTimer = () => ({ type: 'PAUSE_TIMER' });
-export const unpauseTimer = () => ({ type: 'UNPAUSE_TIMER' });
 export const togglePaused = () => ({ type: 'TOGGLE_PAUSED' });
 export const timerTick = () => ({ type: 'TIMER_TICK' });

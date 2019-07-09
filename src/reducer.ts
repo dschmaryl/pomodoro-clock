@@ -51,29 +51,12 @@ export const reducer: Reducer = (state = initialState, action) => {
       return { ...state, volume: Math.min(100, state.volume + 5) };
     case 'DECREASE_VOLUME':
       return { ...state, volume: Math.max(0, state.volume - 5) };
-    case 'PLAY_SOUND':
-      return { ...state, soundPlaying: true };
-    case 'STOP_SOUND':
-      return { ...state, soundPlaying: false };
+
     case 'TOGGLE_SOUND':
       return { ...state, soundPlaying: !state.soundPlaying };
 
-    case 'UNPAUSE_TIMER':
-      if (state.paused) {
-        return { ...state, paused: false, soundPlaying: false };
-      } else {
-        return state;
-      }
-
-    case 'PAUSE_TIMER':
-      if (!state.paused) {
-        return { ...state, paused: true };
-      } else {
-        return state;
-      }
-
     case 'TOGGLE_PAUSED': {
-      return { ...state, paused: !state.paused };
+      return { ...state, paused: !state.paused, soundPlaying: false };
     }
 
     case 'NEXT_SESSION': {
